@@ -1,0 +1,17 @@
+{
+    "name": "CTData Dataset Requests",
+    "description": "Plugin for tracking dataset requests. Can optionally publish to trello board.",
+    "url": "https://github.com/CT-Data-Collaborative/djangocms-dataset-requests",
+    "package-name": "djangocms-dataset-requests",
+    "installed-apps": [
+        "djangocms_dataset_requests"
+    ],
+    "author": {
+        "name": "CT Data"
+        "url": "https://www.ctdata.org"
+    },
+    "license": {
+        "name": "BSD",
+        "text": "!literal-include LICENSE.txt"
+    }
+}
