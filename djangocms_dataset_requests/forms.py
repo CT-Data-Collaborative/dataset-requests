@@ -12,11 +12,11 @@ class RequestForm(ModelForm):
         super(RequestForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_method = 'post'
-        self.helper.form_class = 'request-form form-horizontal'
+        self.helper.form_class = 'request-form'
         self.helper.add_input(Submit('submit', 'Submit Request'))
         self.helper.form_action = 'admin:dataset-request'
-        self.helper.label_class = 'col-lg-2'
-        self.helper.field_class = 'col-lg-8'
+        # self.helper.label_class = 'col-lg-2'
+        # self.helper.field_class = 'col-lg-8'
         self.helper.layout = Layout(
             Fieldset(
                'dataset_name',
