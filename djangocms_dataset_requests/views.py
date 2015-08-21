@@ -55,20 +55,21 @@ class DatasetRequestView(FormView):
             pass
 
         messages.success(self.request,'Your dataset request has been recorded. Thanks!')
-        return super(DatasetRequestView, self).form_valid(form)
+        # return super(DatasetRequestView, self).form_valid(form)
+        return redirect('/')
         #return redirect(cleaned_data['redirect_url'])
 
-    def form_invalid(self, form):
-        redirect_url = form.data.get('redirect_url')
+    # def form_invalid(self, form):
+    #     redirect_url = form.data.get('redirect_url')
 
-        if redirect_url:
-            message = _(u'Something is wrong with your request.')
-            messages.error(self.request, message)
-            response = HttpResponseRedirect(redirect_url)
-        else:
-            # user has tampered with the redirect_url field.
-            response = HttpResponseBadRequest()
-        return response
+    #     if redirect_url:
+    #         message = _(u'Something is wrong with your request.')
+    #         messages.error(self.request, message)
+    #         response = HttpResponseRedirect(redirect_url)
+    #     else:
+    #         # user has tampered with the redirect_url field.
+    #         response = HttpResponseBadRequest()
+    #     return response
 
 
 class RequestDetail(DetailView):
