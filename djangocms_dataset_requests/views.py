@@ -47,16 +47,16 @@ class DatasetRequestView(FormView):
     def form_valid(self, form):
         cleaned_data = form.cleaned_data
         form.save(commit=True)
+        success_url = '/'
 
         try:
             self.update_trello(cleaned_data)
         except:
             pass
 
-        messages.success(self.request,
-            ugettext('Your dataset request has been recorded. Thanks!'))
-
-        return redirect(cleaned_data['redirect_url'])
+        messages.success(self.request,'Your dataset request has been recorded. Thanks!')
+        return super(DatasetRequestView, self).form_valid(form)
+        #return redirect(cleaned_data['redirect_url'])
 
     def form_invalid(self, form):
         redirect_url = form.data.get('redirect_url')
@@ -69,6 +69,7 @@ class DatasetRequestView(FormView):
             # user has tampered with the redirect_url field.
             response = HttpResponseBadRequest()
         return response
+
 
 class RequestDetail(DetailView):
     model = DatasetRequest
