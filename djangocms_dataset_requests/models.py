@@ -12,7 +12,7 @@ class DatasetRequestPlugin(CMSPlugin):
     label_name = models.CharField(max_length=64)
 
     def __unicode__(self):
-        return unicode(self.list_name)
+        return unicode(self.pk)
 
 
 class Source(Sortable):
