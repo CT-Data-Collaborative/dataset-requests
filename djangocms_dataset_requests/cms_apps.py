@@ -1,8 +1,9 @@
 from cms.app_base import CMSApp
 from cms.apphook_pool import apphook_pool
+from django.utils.translation import ugettext_lazy as _
 
 class DatasetRequestAndIssues(CMSApp):
-    name = 'Dataset Request and Issue Tracking'
+    name = _('Dataset Request and Issue Tracking')
     urls = ['dataset-requests.urls']
 
 apphook_pool.register(DatasetRequestAndIssues)
