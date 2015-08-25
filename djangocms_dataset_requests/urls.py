@@ -1,5 +1,10 @@
-from django.conf.urls import patterns, urls
+from django.conf.urls import patterns, url
 
-urlpatterns = patterns('djangocms_dataset_requests.views',
-    url(r'^(?P<pk>[0-9]+)/(?P<slug>[\w.@+-]+)/$', 'request_detail', name='django_dataset_requests.request_detail'),
+from . import views
+
+urlpatterns = patterns('djangocms_dataset_requests.view',
+    # URL pattern for the UserListView  # noqa
+    url(r'^$', RequestsHomeView, name='request_home'),
+    url(r'^new_request/$', DatasetRequestView.as_view(), name='new_request'),
+    url(r'^success/$', RequestSuccessView, name='request_success'),
 )

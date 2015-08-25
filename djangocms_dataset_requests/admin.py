@@ -1,16 +1,19 @@
 from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
 
-from adminsortable.admin import SortableAdmin, SortableTabularInline
+# from adminsortable.admin import SortableAdmin, SortableTabularInline
 
 from .models import DatasetRequest, Source
 
-class SourceInline(SortableTabularInline):
-    model = Source
-    extra = 0
+# class SourceInline(SortableTabularInline):
+#     model = Source
+#     extra = 0
+#
+# class SourceAdmin(SortableAdmin):
+#     inlines = (SourceInline,)
 
-class SourceAdmin(SortableAdmin):
-    inlines = (SourceInline,)
+class SourceAdmin(admin.ModelAdmin):
+    pass
 
 class DatasetRequestAdmin(admin.ModelAdmin):
     list_display = ('dataset_name', 'dataset_description', 'dataset_source', 'status')
@@ -21,7 +24,7 @@ class DatasetRequestAdmin(admin.ModelAdmin):
     _fieldsets = (
         (_('Request Detail'), {
             'fields': (
-                'dataset_source', 'dataset_name', 'dataset_description', 'status', 'created_date',
+                'dataset_source', 'dataset_name', 'dataset_description', 'status', 'created_date', 'trello_id'
                 )
             }
         ),
