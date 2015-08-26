@@ -26,7 +26,7 @@ class DatasetRequestView(FormView):
     model = DatasetRequest
 
     def form_valid(self, form):
-        self.object.save()
+        form.save()
         return redirect('request_success')
 
     def form_invalid(self, form):
