@@ -2,7 +2,7 @@ from django.conf.urls import patterns, url
 
 from . import views
 
-urlpatterns = patterns(,
+urlpatterns = patterns('',
     # URL pattern for the UserListView  # noqa
     url(r'^$', views.RequestsHomeView, name='request_home'),
     url(r'^new_request/$', views.DatasetRequestView.as_view(), name='new_request'),
