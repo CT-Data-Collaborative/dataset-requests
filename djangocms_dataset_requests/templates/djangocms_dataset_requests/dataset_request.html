@@ -1,5 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  {% include "djangocms_dataset_requests/snippets/_request.html" %}
+<div class="container">
+   <div class="row">
+      <div class="col-sm-12">
+         <p>Please use the following form to submit a new request for data that is not currently available on CTData.org. If
+         you would like to submit an issue report about an existing dataset, please use the Data Issue page. Existing requests can
+         be tracked on the <a href={% url 'request_home' %}>Data Requests</a> page.</p>
+         <p>All information provided other than your name and email address will be publically visible. If you would like to keep your request
+         private, please use the main contact form instead.</p>
+         {% include "djangocms_dataset_requests/snippets/_request.html" %}
+      </div>
+   </div>
+</div>
 {% endblock %}

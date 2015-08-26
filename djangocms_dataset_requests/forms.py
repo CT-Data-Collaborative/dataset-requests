@@ -19,7 +19,7 @@ class RequestForm(ModelForm):
         # self.helper.field_class = 'col-lg-8'
         self.helper.layout = Layout(
             Fieldset(
-               'Dataset Details',
+               'New Data Request',
                'dataset_name',
                'dataset_source',
                'dataset_description',
