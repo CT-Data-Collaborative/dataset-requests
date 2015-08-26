@@ -4,6 +4,6 @@ from django.utils.translation import ugettext_lazy as _
 
 class DatasetRequestAndIssues(CMSApp):
     name = _('Dataset Request and Issue Tracking')
-    urls = ['dataset-requests.urls']
+    urls = ['.urls']
 
 apphook_pool.register(DatasetRequestAndIssues)
