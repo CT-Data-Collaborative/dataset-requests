@@ -62,7 +62,7 @@ class DatasetRequest(Sortable):
                                       choices=STATUS_CHOICES,
                                       default=PENDING)
     created_date = models.DateTimeField(auto_now_add=True)
-    trello_id = models.CharField(max_length=32)
+    trello_id = models.CharField(max_length=32, blank=True)
 
     def __unicode__(self):
         return u'%s' %(self.dataset_name)
@@ -76,13 +76,10 @@ class DatasetRequest(Sortable):
 
         c = TrelloClient(api_key, secret, token)
         b = c.get_board(board)
-        print "Got Board"
-
+    
         # Currently we default to adding card to first list
         l = b.all_lists()[0]
-        print "Got List"
-        label_list = b.get_labels()
-        print "Got Labels"
+        label_list = b.get_labels() 
 
         ds_name = "%s - %s" % (self.dataset_name, self.dataset_source)
 
@@ -109,8 +106,7 @@ class DatasetRequest(Sortable):
         secret = settings.TRELLO_SECRET
         token = settings.TRELLO_TOKEN
         id = self.trello_id
-        c = TrelloClient(api_key, secret, token)
-        # b = c.get_board(board)
+        c = TrelloClient(api_key, secret, token) 
         card = c.get_card(id)
         try:
             card.set_closed(True)
@@ -119,8 +115,7 @@ class DatasetRequest(Sortable):
 
     def save(self, *args, **kwargs):
         try:
-            card_id = self.save_to_trello()
-            # self.trello_id = card_id
+            self.save_to_trello()
         except Exception:
             self.trello_id = ''
         super(DatasetRequest, self).save(*args, **kwargs)
