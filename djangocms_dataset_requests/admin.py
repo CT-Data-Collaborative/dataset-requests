@@ -19,7 +19,7 @@ class DatasetRequestAdmin(admin.ModelAdmin):
     list_display = ('dataset_name', 'dataset_description', 'dataset_source', 'status')
     search_fields = ('status', 'dataset_source', 'datset_description', 'dataset_name')
     list_filter = ('status', 'dataset_source', 'user_notified')
-    readonly_fields = ('created_date', 'user_first_name', 'user_last_name', 'user_email')
+    # readonly_fields = ('created_date', 'user_first_name', 'user_last_name', 'user_email')
 
     _fieldsets = (
         (_('Request Detail'), {

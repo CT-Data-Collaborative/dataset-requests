@@ -52,12 +52,13 @@ class DatasetRequest(Sortable):
         (REJECTED, 'Rejected')
     )
     dataset_name = models.CharField(max_length=40)
-    dataset_description = models.CharField(max_length=40)
+    dataset_description = models.TextField()
     dataset_source = SortableForeignKey(Source)
     user_first_name = models.CharField(max_length=40)
     user_last_name = models.CharField(max_length=40)
     user_email = models.EmailField()
     user_notified = models.BooleanField(default=False)
+    response = models.TextField()
     status = models.CharField(max_length=2,
                                       choices=STATUS_CHOICES,
                                       default=PENDING)
@@ -76,10 +77,10 @@ class DatasetRequest(Sortable):
 
         c = TrelloClient(api_key, secret, token)
         b = c.get_board(board)
-    
+
         # Currently we default to adding card to first list
         l = b.all_lists()[0]
-        label_list = b.get_labels() 
+        label_list = b.get_labels()
 
         ds_name = "%s - %s" % (self.dataset_name, self.dataset_source)
 
@@ -106,7 +107,7 @@ class DatasetRequest(Sortable):
         secret = settings.TRELLO_SECRET
         token = settings.TRELLO_TOKEN
         id = self.trello_id
-        c = TrelloClient(api_key, secret, token) 
+        c = TrelloClient(api_key, secret, token)
         card = c.get_card(id)
         try:
             card.set_closed(True)
