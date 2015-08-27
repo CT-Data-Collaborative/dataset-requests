@@ -11,10 +11,10 @@
         {% for dsr in dataset_requests %}
         <div class="dataset-request" id="request-{{forloop.counter}}">
           <h3 class="dataset-request-title">
-            <a href="#">{{dsr.dataset_name}}</a>
+            <a href="{% url 'request_home' %}/{{dsr.id}}/">{{dsr.dataset_name}}</a>
           </h3>
           <span class="dataset-request-status state-{{dsr.status}}">
-            {{dsr.status}}
+            {{dsr.get_status_display}}
           </span>
           <span class="dataset-request-requested-date">
             {{dsr.created_date}}

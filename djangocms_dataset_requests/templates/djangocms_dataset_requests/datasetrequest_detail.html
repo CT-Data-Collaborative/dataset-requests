@@ -1,10 +1,21 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
-{% block 'content' %}
+{% block content %}
 <div class="container">
     <div class="row">
         <div class="col-sm-8 col-sm-offset-2">
-            <h1>{{dataset_request.dataset_name}}</h1>
+            <p>The details and current status of data requests submitted through
+            the <a href="{% url 'request_home' %}">Data Request</a> page can be
+            seen here.</p>
+            <h3>{{dsr.dataset_name}}</h3>
+            <p class="dataset-request-id">Request #{{dsr.id}}</p>
+            <span class="dataset-request-status state-{{dsr.status}}">
+              {{dsr.get_status_display}}
+            </span>
+            <span class="dataset-request-requested-date">
+                Submitted on {{dsr.created_date}}
+            </span>
+            <p class="dataset-request-request-details">{{dsr.dataset_description}}</p>
         </div>
     </div>
 </div>
