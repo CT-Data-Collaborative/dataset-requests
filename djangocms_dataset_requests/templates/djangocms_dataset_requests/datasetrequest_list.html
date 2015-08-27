@@ -8,19 +8,21 @@
       <p>The details and current status of data requests submit through the <a href="{% url 'new_request' %}">Data Request
       </a> page can be seen here.</p>
       <div id="dataset-requests-list">
-        {% for dsr in dataset_request_list %}
+        {% for dsr in dataset_requests %}
         <div class="dataset-request" id="request-{{forloop.counter}}">
           <h3 class="dataset-request-title">
             <a href="#">{{dsr.dataset_name}}</a>
           </h3>
-          <div class="dataset-request-status state-{{dsr.status}}">
+          <span class="dataset-request-status state-{{dsr.status}}">
             {{dsr.status}}
-          </div>
-          <div class="dataset-request-requested-date">
+          </span>
+          <span class="dataset-request-requested-date">
             {{dsr.created_date}}
-          </div>
+          </span>
         </div>
+        {% endfor%}
       </div>
     </div>
   </div>
+</div>
 {% endblock %}

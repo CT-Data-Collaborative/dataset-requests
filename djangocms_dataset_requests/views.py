@@ -11,19 +11,15 @@ from .models import DatasetRequest, Source
 
 from trello import TrelloClient
 
-def RequestsHomeView(request):
-    context = RequestContext(request)
-    return render_to_response('djangocms_dataset_requests/home.html',context_instance=context)
-
-
 class DatasetRequestsListView(ListView):
     model = DatasetRequest
     context_object_name = 'dataset_requests'
 
 
-def RequestSuccessView(request):
-    context = RequestContext(request)
-    return render_to_response('djangocms_dataset_requests/success.html', context_instance=context)
+class DatasetRequestDetailView(DetailView):
+    model = DatasetRquest
+    context_object_name = 'dataset_request'
+
 
 class DatasetRequestView(FormView):
     """Capture request and save"""
@@ -33,7 +29,7 @@ class DatasetRequestView(FormView):
 
     def form_valid(self, form):
         form.save()
-        return redirect('request_success')
+        return redirect('dataset_requests')
 
     def form_invalid(self, form):
         redirect_url = '/'
