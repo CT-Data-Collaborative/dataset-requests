@@ -17,7 +17,7 @@ class DatasetRequestsListView(ListView):
 
 
 class DatasetRequestDetailView(DetailView):
-    model = DatasetRquest
+    model = DatasetRequest
     context_object_name = 'dataset_request'
 
 
