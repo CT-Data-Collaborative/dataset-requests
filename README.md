@@ -23,7 +23,7 @@ and pass them through the application environment.
 
 This is one approach that will work:
 
-`
+```
 def application(environ, start_response):
     os.environ['DJANGO_DATABASE_URL'] = environ.get('DJANGO_DATABASE_URL','')
     os.environ['DJANGO_CONFIGURATION'] = environ.get('DJANGO_CONFIGURATION','')
@@ -32,4 +32,4 @@ def application(environ, start_response):
     os.environ['DJANGO_TRELLO_SECRET'] = environ.get('DJANGO_TRELLO_SECRET','')
     os.environ['DJANGO_TRELLO_TOKEN'] = environ.get('DJANGO_TRELLO_TOKEN','')
     return _application(environ, start_response)
-`
+```
