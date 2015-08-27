@@ -1,21 +1,9 @@
 # -*- coding: utf-8 -*-
 from django.conf import settings
 from django.db import models
-# from cms.models.pluginmodel import CMSPlugin
 from adminsortable.models import Sortable
 from adminsortable.fields import SortableForeignKey
 from trello import TrelloClient
-
-
-# class DatasetRequestPlugin(CMSPlugin):
-#     trello_api = models.CharField(max_length=32)
-#     trello_app_token = models.CharField(max_length=64)
-#     trello_board = models.CharField(max_length=64)
-#     label_name = models.CharField(max_length=64)
-#
-#     def __unicode__(self):
-#         return unicode(self.pk)
-
 
 class Source(Sortable):
     class Meta(Sortable.Meta):

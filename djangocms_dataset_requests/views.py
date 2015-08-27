@@ -43,14 +43,3 @@ class DatasetRequestView(FormView):
             # user has tampered with the redirect_url field.
             response = HttpResponseBadRequest()
         return response
-
-
-# class RequestDetail(DetailView):
-#     model = DatasetRequest
-#
-#     @property
-#     def template_name_suffice(self):
-#         return '_detail'
-#
-#     def get_queryset(self):
-#         return self.model.objects.all()

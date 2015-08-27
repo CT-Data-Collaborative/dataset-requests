@@ -5,8 +5,6 @@ from crispy_forms.layout import Layout, Submit, Fieldset
 from crispy_forms.bootstrap import FormActions, StrictButton
 
 class RequestForm(ModelForm):
-    # plugin_id = CharField(widget=HiddenInput)
-    # redirect_url = CharField(widget=HiddenInput)
 
     def __init__(self, *args, **kwargs):
         super(RequestForm, self).__init__(*args, **kwargs)
@@ -15,8 +13,6 @@ class RequestForm(ModelForm):
         self.helper.form_class = 'request-form'
         self.helper.add_input(Submit('submit', 'Submit Request'))
         self.helper.form_action = 'new_request'
-        # self.helper.label_class = 'col-lg-2'
-        # self.helper.field_class = 'col-lg-8'
         self.helper.layout = Layout(
             Fieldset(
                'New Data Request',
