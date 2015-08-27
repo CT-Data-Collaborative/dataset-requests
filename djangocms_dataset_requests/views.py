@@ -18,7 +18,7 @@ class DatasetRequestsListView(ListView):
 
 class DatasetRequestDetailView(DetailView):
     model = DatasetRequest
-    template_name = 'djangocms_dataset_requests/dataset_detail.html'
+    template_name = 'djangocms_dataset_requests/datasetrequest_detail.html'
     context_object_name = 'dsr'
 
 
