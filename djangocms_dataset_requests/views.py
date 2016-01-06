@@ -1,7 +1,7 @@
-    from django.conf import settings
+# from django.conf import settings
 from django.contrib import messages
 from django.http import HttpResponseBadRequest, HttpResponseRedirect
-from django.template import RequestContext
+#from django.template import RequestContext
 from django.shortcuts import redirect, get_object_or_404, render_to_response
 from django.utils.translation import ugettext, ugettext_lazy as _
 from django.views.generic import FormView, DetailView, ListView
@@ -9,7 +9,8 @@ from django.views.generic import FormView, DetailView, ListView
 from .forms import RequestForm
 from .models import DatasetRequest, Source
 
-from trello import TrelloClient
+
+#from trello import TrelloClient
 
 class DatasetRequestsListView(ListView):
     model = DatasetRequest

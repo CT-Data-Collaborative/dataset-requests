@@ -22,7 +22,7 @@ CLASSIFIERS = [
 ]
 
 setup(
-    name='djangocms-dataset-requests',
+        name='djangocms_dataset_requests',
     version=__version__,
     description='Plugins for tracking dataset requests.',
     author='Sasha Cuerda',
